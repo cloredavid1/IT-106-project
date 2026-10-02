@@ -1,0 +1,6 @@
+//Calls the code to actually run. 
+public class Main {
+    public static void main(String[] args) {
+        BudgetAndCalories.main(args);
+    }
+}
