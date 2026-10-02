@@ -1,1 +1,28 @@
+def track_budget_and_calories():
+
+    # Input: Ask the user for information
+    food_budget = float(input("Enter your food budget for today ($): "))
+    calorie_goal = float(input("Enter your calorie goal for today: "))
+
+    meal_cost = float(input("Enter the cost of your meal ($): "))
+    calories_eaten = float(input("Enter the calories in your meal: "))
+
+    exercise_calories = float(input("Enter calories burned from exercise: "))
+
+    # Process: Calculate budget and calories
+    remaining_budget = food_budget - meal_cost
+    total_spent = meal_cost
+    calories_consumed = calories_eaten
+    remaining_calories = calorie_goal - calories_eaten + exercise_calories
+
+    # Output: Show the results
+    print("\n--- Daily Summary ---")
+    print(f"Remaining food budget: ${remaining_budget:.2f}")
+    print(f"Total money spent: ${total_spent:.2f}")
+    print(f"Calories consumed: {calories_consumed:.0f}")
+    print(f"Calories left for the day (after exercise): {remaining_calories:.0f}")
+
+
+# Run the program
+track_budget_and_calories()
 
