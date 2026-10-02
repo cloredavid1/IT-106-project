@@ -1,28 +1,39 @@
-def track_budget_and_calories():
+import java.util.Scanner;
 
-    # Input: Ask the user for information
-    food_budget = float(input("Enter your food budget for today ($): "))
-    calorie_goal = float(input("Enter your calorie goal for today: "))
+public class BudgetAndCalories {
+    public static void main(String[] args) {
 
-    meal_cost = float(input("Enter the cost of your meal ($): "))
-    calories_eaten = float(input("Enter the calories in your meal: "))
+        Scanner input = new Scanner(System.in);
 
-    exercise_calories = float(input("Enter calories burned from exercise: "))
+        // Input: Ask the user for information
+        System.out.print("Enter your food budget for today ($): ");
+        double foodBudget = input.nextDouble();
 
-    # Process: Calculate budget and calories
-    remaining_budget = food_budget - meal_cost
-    total_spent = meal_cost
-    calories_consumed = calories_eaten
-    remaining_calories = calorie_goal - calories_eaten + exercise_calories
+        System.out.print("Enter your calorie goal for today: ");
+        double calorieGoal = input.nextDouble();
 
-    # Output: Show the results
-    print("\n--- Daily Summary ---")
-    print(f"Remaining food budget: ${remaining_budget:.2f}")
-    print(f"Total money spent: ${total_spent:.2f}")
-    print(f"Calories consumed: {calories_consumed:.0f}")
-    print(f"Calories left for the day (after exercise): {remaining_calories:.0f}")
+        System.out.print("Enter the cost of your meal ($): ");
+        double mealCost = input.nextDouble();
+
+        System.out.print("Enter the calories in your meal: ");
+        double caloriesEaten = input.nextDouble();
+
+        System.out.print("Enter calories burned from exercise: ");
+        double exerciseCalories = input.nextDouble();
 
 
-# Run the program
-track_budget_and_calories()
+        // Process: Calculate budget and calories
+        double remainingBudget = foodBudget - mealCost;
+        double totalSpent = mealCost;
+        double caloriesConsumed = caloriesEaten;
+        double remainingCalories = calorieGoal - caloriesEaten + exerciseCalories;
 
+
+        // Output: Show the results
+        System.out.println("\n--- Daily Summary ---");
+        System.out.println("Remaining food budget: $" + remainingBudget);
+        System.out.println("Total money spent: $" + totalSpent);
+        System.out.println("Calories consumed: " + caloriesConsumed);
+        System.out.println("Calories left for the day: " + remainingCalories);
+    }
+}
