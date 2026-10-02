@@ -1,39 +1,31 @@
-import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class BudgetAndCalories {
     public static void main(String[] args) {
 
-        Scanner input = new Scanner(System.in);
+        // Input
+        String budgetInput = JOptionPane.showInputDialog("Enter your food budget:");
+        double foodBudget = Double.parseDouble(budgetInput);
 
-        // Input: Ask the user for information
-        System.out.print("Enter your food budget for today ($): ");
-        double foodBudget = input.nextDouble();
+        String goalInput = JOptionPane.showInputDialog("Enter your calorie goal:");
+        double calorieGoal = Double.parseDouble(goalInput);
 
-        System.out.print("Enter your calorie goal for today: ");
-        double calorieGoal = input.nextDouble();
+        String costInput = JOptionPane.showInputDialog("Enter your meal cost:");
+        double mealCost = Double.parseDouble(costInput);
 
-        System.out.print("Enter the cost of your meal ($): ");
-        double mealCost = input.nextDouble();
+        String caloriesInput = JOptionPane.showInputDialog("Enter calories eaten:");
+        double caloriesEaten = Double.parseDouble(caloriesInput);
 
-        System.out.print("Enter the calories in your meal: ");
-        double caloriesEaten = input.nextDouble();
+        String exerciseInput = JOptionPane.showInputDialog("Enter calories burned:");
+        double exerciseCalories = Double.parseDouble(exerciseInput);
 
-        System.out.print("Enter calories burned from exercise: ");
-        double exerciseCalories = input.nextDouble();
-
-
-        // Process: Calculate budget and calories
+        // Process
         double remainingBudget = foodBudget - mealCost;
-        double totalSpent = mealCost;
-        double caloriesConsumed = caloriesEaten;
         double remainingCalories = calorieGoal - caloriesEaten + exerciseCalories;
 
-
-        // Output: Show the results
-        System.out.println("\n--- Daily Summary ---");
-        System.out.println("Remaining food budget: $" + remainingBudget);
-        System.out.println("Total money spent: $" + totalSpent);
-        System.out.println("Calories consumed: " + caloriesConsumed);
-        System.out.println("Calories left for the day: " + remainingCalories);
+        // Output
+        JOptionPane.showMessageDialog(null,
+                "Remaining budget: $" + remainingBudget +
+                "\nCalories left: " + remainingCalories);
     }
 }
