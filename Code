@@ -3,29 +3,31 @@ import javax.swing.JOptionPane;
 public class BudgetAndCalories {
     public static void main(String[] args) {
 
-        // Input
-        String budgetInput = JOptionPane.showInputDialog("Enter your food budget:");
-        double foodBudget = Double.parseDouble(budgetInput);
+        // INPUT
+        double budget = Double.parseDouble(
+                JOptionPane.showInputDialog("Enter food budget:"));
 
-        String goalInput = JOptionPane.showInputDialog("Enter your calorie goal:");
-        double calorieGoal = Double.parseDouble(goalInput);
+        double goal = Double.parseDouble(
+                JOptionPane.showInputDialog("Enter calorie goal:"));
 
-        String costInput = JOptionPane.showInputDialog("Enter your meal cost:");
-        double mealCost = Double.parseDouble(costInput);
+        double cost = Double.parseDouble(
+                JOptionPane.showInputDialog("Enter meal cost:"));
 
-        String caloriesInput = JOptionPane.showInputDialog("Enter calories eaten:");
-        double caloriesEaten = Double.parseDouble(caloriesInput);
+        double eaten = Double.parseDouble(
+                JOptionPane.showInputDialog("Enter calories eaten:"));
 
-        String exerciseInput = JOptionPane.showInputDialog("Enter calories burned:");
-        double exerciseCalories = Double.parseDouble(exerciseInput);
+        double burned = Double.parseDouble(
+                JOptionPane.showInputDialog("Enter calories burned:"));
 
-        // Process
-        double remainingBudget = foodBudget - mealCost;
-        double remainingCalories = calorieGoal - caloriesEaten + exerciseCalories;
 
-        // Output
+        // PROCESS
+        double moneyLeft = budget - cost;
+        double caloriesLeft = goal - eaten + burned;
+
+
+        // OUTPUT
         JOptionPane.showMessageDialog(null,
-                "Remaining budget: $" + remainingBudget +
-                "\nCalories left: " + remainingCalories);
+                "Money left: $" + moneyLeft +
+                "\nCalories left: " + caloriesLeft);
     }
 }
