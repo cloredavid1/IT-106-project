@@ -3,31 +3,97 @@ import javax.swing.JOptionPane;
 public class BudgetAndCalories {
     public static void main(String[] args) {
 
-        // INPUT
-        double budget = Double.parseDouble(
-                JOptionPane.showInputDialog("Enter food budget:"));
+        /*
+         * Budget and Calories Program
+         *
+         * This program allows the user to enter a food budget,
+         * calorie goal, meal cost, calories eaten, and calories burned.
+         *
+         * The program calculates how much money is left in the budget
+         * and how many calories the user has remaining.
+         *
+         * Input validation is used to prevent invalid entries.
+         * The program also allows the user to run it multiple times.
+         */
 
-        double goal = Double.parseDouble(
-                JOptionPane.showInputDialog("Enter calorie goal:"));
+        boolean runAgain = true;
 
-        double cost = Double.parseDouble(
-                JOptionPane.showInputDialog("Enter meal cost:"));
+        while (runAgain) {
 
-        double eaten = Double.parseDouble(
-                JOptionPane.showInputDialog("Enter calories eaten:"));
+            try {
 
-        double burned = Double.parseDouble(
-                JOptionPane.showInputDialog("Enter calories burned:"));
+                // INPUT
+                double budget = Double.parseDouble(
+                        JOptionPane.showInputDialog("Enter food budget:"));
+
+                double goal = Double.parseDouble(
+                        JOptionPane.showInputDialog("Enter calorie goal:"));
+
+                double cost = Double.parseDouble(
+                        JOptionPane.showInputDialog("Enter meal cost:"));
+
+                double eaten = Double.parseDouble(
+                        JOptionPane.showInputDialog("Enter calories eaten:"));
+
+                double burned = Double.parseDouble(
+                        JOptionPane.showInputDialog("Enter calories burned:"));
 
 
-        // PROCESS
-        double moneyLeft = budget - cost;
-        double caloriesLeft = goal - eaten + burned;
+                // VALIDATION
+                if (budget < 0 || goal < 0 || cost < 0 ||
+                        eaten < 0 || burned < 0) {
+
+                    JOptionPane.showMessageDialog(null,
+                            "Error: Numbers cannot be negative.");
+
+                } else {
+
+                    // PROCESS
+                    double moneyLeft = budget - cost;
+                    double caloriesLeft = goal - eaten + burned;
 
 
-        // OUTPUT
+                    // OUTPUT
+                    String message = "Money left: $" + moneyLeft +
+                            "\nCalories left: " + caloriesLeft;
+
+                    // IF/ELSE STATEMENTS
+                    if (moneyLeft < 0) {
+                        message += "\nYou are over your food budget.";
+                    } else {
+                        message += "\nYou are within your food budget.";
+                    }
+
+                    if (caloriesLeft < 0) {
+                        message += "\nYou went over your calorie goal.";
+                    } else {
+                        message += "\nYou are within your calorie goal.";
+                    }
+
+                    JOptionPane.showMessageDialog(null, message);
+                }
+
+            } catch (NumberFormatException e) {
+
+                // ERROR IF USER ENTERS WORDS INSTEAD OF NUMBERS
+                JOptionPane.showMessageDialog(null,
+                        "Error: Please enter numbers only.");
+            }
+
+
+            // ASK USER IF THEY WANT TO RUN THE PROGRAM AGAIN
+            int choice = JOptionPane.showConfirmDialog(
+                    null,
+                    "Would you like to run the program again?",
+                    "Run Again",
+                    JOptionPane.YES_NO_OPTION);
+
+            if (choice == JOptionPane.NO_OPTION) {
+                runAgain = false;
+            }
+        }
+
         JOptionPane.showMessageDialog(null,
-                "Money left: $" + moneyLeft +
-                "\nCalories left: " + caloriesLeft);
+                "Program ended.");
     }
 }
