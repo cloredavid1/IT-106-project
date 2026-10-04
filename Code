@@ -72,17 +72,20 @@ public class BudgetAndCalories {
                             "\nCalories left: " + caloriesLeft;
 
                     // IF/ELSE STATEMENTS START
-                    if (moneyLeft < 0) {
-                        message += "\nYou are over your food budget.";
+                   if (caloriesLeft >= goal) {
+                        message += "You met or exceeded your calorie goal.";
                     } else {
-                        message += "\nYou are within your food budget.";
+                        message += "You are below your calorie goal.";
                     }
-
-                    if (caloriesLeft < 0) {
-                        message += "\nYou went over your calorie goal.";
-                    } else {
-                        message += "\nYou are within your calorie goal.";
-                    } \\END
+                    if (moneyLeft >= 0 && caloriesLeft <= goal) {
+                        message += "⭐ Balanced Day!";
+                    }else if (moneyLeft < 0 && caloriesLeft <= goal) {
+                         message += "💰 Calories are on track, but you went over budget.";
+                    }else if (moneyLeft >= 0 && caloriesLeft > goal) {
+                         message += "🥗 Budget is on track, but you exceeded your calorie goal.";
+                    }else {
+                        message += "⚠️ You went over both your budget and calorie goal.";
+                    }
 
                     JOptionPane.showMessageDialog(null, message);
                 }
