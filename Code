@@ -71,7 +71,7 @@ public class BudgetAndCalories {
                     String message = "Money left: $" + moneyLeft +
                             "\nCalories left: " + caloriesLeft;
 
-                    // IF/ELSE STATEMENTS
+                    // IF/ELSE STATEMENTS START
                     if (moneyLeft < 0) {
                         message += "\nYou are over your food budget.";
                     } else {
@@ -82,7 +82,7 @@ public class BudgetAndCalories {
                         message += "\nYou went over your calorie goal.";
                     } else {
                         message += "\nYou are within your calorie goal.";
-                    }
+                    } \\END
 
                     JOptionPane.showMessageDialog(null, message);
                 }
