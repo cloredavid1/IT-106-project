@@ -29,19 +29,31 @@ public class BudgetAndCalories {
                 double goal = Double.parseDouble(
                         JOptionPane.showInputDialog("Enter calorie goal:"));
 
-                double cost = Double.parseDouble(
-                        JOptionPane.showInputDialog("Enter meal cost:"));
+                double costB = Double.parseDouble(
+                        JOptionPane.showInputDialog("Enter breakfest meal cost:"));
 
-                double eaten = Double.parseDouble(
-                        JOptionPane.showInputDialog("Enter calories eaten:"));
+                double eatenB = Double.parseDouble(
+                        JOptionPane.showInputDialog("Enter breakfest calories eaten:"));
+                
+                double costL = Double.parseDouble(
+                        JOptionPane.showInputDialog("Enter lunch meal cost:"));
+
+                double eatenL = Double.parseDouble(
+                        JOptionPane.showInputDialog("Enter lunch calories eaten:"));
+
+                double costD = Double.parseDouble(
+                        JOptionPane.showInputDialog("Enter dinner meal cost:"));
+
+                double eatenD = Double.parseDouble(
+                        JOptionPane.showInputDialog("Enter dinner calories eaten:"));
 
                 double burned = Double.parseDouble(
                         JOptionPane.showInputDialog("Enter calories burned:"));
 
 
                 // VALIDATION
-                if (budget < 0 || goal < 0 || cost < 0 ||
-                        eaten < 0 || burned < 0) {
+                if (budget < 0 || goal < 0 || costB < 0 || costL < 0 || costD < 0 ||
+                        eatenB < 0 || eatenL < 0 || eatenD < 0 || burned < 0) {
 
                     JOptionPane.showMessageDialog(null,
                             "Error: Numbers cannot be negative.");
@@ -49,8 +61,10 @@ public class BudgetAndCalories {
                 } else {
 
                     // PROCESS
-                    double moneyLeft = budget - cost;
-                    double caloriesLeft = goal - eaten + burned;
+                    double totalcost = costB + costL + costD;
+                    double moneyLeft = budget - totalcost;
+                    double totalcale = eatenB + eatenL + eatenD;
+                    double caloriesLeft = goal - totalcale + burned;
 
 
                     // OUTPUT
